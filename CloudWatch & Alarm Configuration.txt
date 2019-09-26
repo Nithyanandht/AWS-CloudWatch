@@ -1,0 +1,67 @@
+
+
+
+Created IAM User -> Then Role & Defined the Policies.
+
+====================================================
+
+Agent Installation - On Instance Level:
+
+1) Installed the CW Agent on Linux 2 -
+
+2) Created the Log Group in /etc/awslogs/awslogs.conf file
+
+3) Changed the Region in /etc/awslogs/awscli.conf file
+
+4) Started the Agent, Checked the Status.
+
+5) Verfied through Console.
+
+======================================================
+
+Metrics on CW:
+
+1) Metrics -> EC2 -> Per-Instance Metrics
+
+2) Selected the CPU Utilization Metric.
+
+3) Added to New Dashboard (Sample Dashboard)
+
+4) Added Alarm Configuration -> Created SNS Topic.
+
+Command to Impose HIGH CPU Usage on L-Machine -> sha1sum /dev/zero &
+To Stop this - killall sha1sum
+
+((consume -cpu-time -time 5 )) for Windows
+
+5) Received the Alamr in Email.
+
+======================================================
+
+
+FOR WINDOWS :
+https://medium.com/@mudita.misra/stream-windows-iis-log-to-aws-cloudwatch-cbcfbdfed969 
+
+1) Installed the EC2ConfigService
+
+2) Installed the SSM Agent
+
+3) Login to the instance,now navigate to C:\Program Files\Amazon\Ec2ConfigService\Settings\config.xml, scroll to the bottom of that file, and here we will see an option for <Name>AWS.EC2.Windows.CloudWatch.Plugin</Name> and below that we will see <State>Disabled</State>, Change the value for State from Disabled to Enabled, and save the file.
+
+4) Edit the Json file , Path: C:\Program Files\Amazon\EC2config\Settings\AWS.EC2.Windows.CloudWatch.json
+
+5) Restart the Amazon SSM Agent in services.
+
+--Imposing High CPU for Stress Test--
+
+Installed the Windows Resource Kits 
+
+Path: consume -cpu-time -time 5 (( for Windows ))
+
+
+
+
+------------------------------------------------------------------------
+
+
+
